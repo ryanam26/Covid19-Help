@@ -46,10 +46,9 @@ app.use(cors());
 // log HTTP requests
 app.use(morgan('combined'));
 
-app.use(express.static('fontend/build'));
 
 // retrieve all questions
-/* app.get('/', (req, res) => {
+app.get('/', (req, res) => {
   questionsModel.find()
     .then(q => res.json(q.reverse().map(q => ({
       id: q.id,
@@ -59,7 +58,7 @@ app.use(express.static('fontend/build'));
 
     }))))
 
-}) */
+})
 
 
 // get a specific question
@@ -110,16 +109,17 @@ app.post('/answer/:id', checkJwt, (req, res) => {
 });
 
 
-if (process.env.NODE_ENV === 'production') {
+//if (process.env.NODE_ENV === 'production') {
   // set static folder
-  //app.use(express.static('fontend/build'));
 
   app.get('*', (req, res) => {
+
+    app.use(express.static('fontend/build'));
 
     res.sendFile(path.resolve(__dirname, "frontend", 'build', 'index.html'))
 
   })
-}
+//}
 
 const port = process.env.PORT || 5000;
 // start the server
