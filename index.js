@@ -47,17 +47,7 @@ app.use(cors());
 app.use(morgan('combined'));
 
 
-if (process.env.NODE_ENV === 'production') {
-  // set static folder
 
-  app.get('/', (req, res) => {
-
-    app.use(express.static('frontend/build'));
-
-    res.sendFile(path.resolve(__dirname, "frontend", 'build', 'index.html'))
-
-  })
-}
 
 
 
@@ -123,6 +113,18 @@ app.post('/answer/:id', checkJwt, (req, res) => {
   
 });
 
+
+if (process.env.NODE_ENV === 'production') {
+  // set static folder
+
+  app.get('/', (req, res) => {
+
+    app.use(express.static('frontend/build'));
+
+    res.sendFile(path.resolve(__dirname, "frontend", 'build', 'index.html'))
+
+  })
+}
 
 
 
