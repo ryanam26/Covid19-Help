@@ -23,7 +23,7 @@ const questionsModel = mongoose.model("questions", QSchema)
 // retrieve all questions
 router.get('/', (req, res) => {
     questionsModel.find()
-        .then(q => res.send(q.reverse().map(q => ({
+        .then(q => res.json(q.reverse().map(q => ({
             id: q.id,
             title: q.title,
             description: q.description,
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 // get a specific question
 router.get('/:id', (req, res) => {
     questionsModel.findOne({ id: req.params.id })
-        .then(q => res.send(q))
+        .then(q => res.json(q))
 })
 
 const checkJwt = jwt({
@@ -55,7 +55,7 @@ const checkJwt = jwt({
 });
 
 // insert a new question
-router.post('/', checkJwt, (req, res) => {
+router.post('/', (req, res) => {
     const { title, description } = req.body;
     const newQuestion = new questionsModel({
         id: Math.random(),
@@ -64,19 +64,19 @@ router.post('/', checkJwt, (req, res) => {
         answers: [],
         author: req.user.name,
     });
-    newQuestion.save().then(q=>res.send(q));
+    newQuestion.save().then(q=>res.json(q));
 
 });
 
 // insert a new answer to a question
-router.post('/answer/:id', checkJwt, (req, res) => {
+router.post('/answer/:id', (req, res) => {
     const { answer } = req.body;
 
 
     questionsModel.findOne({ id: req.params.id })
         .then((record) => {
             record.answers.push(answer);
-            record.save().then( q => res.send(q))
+            record.save().then( q => res.json(q))
         })
 
 });
