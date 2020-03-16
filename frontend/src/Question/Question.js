@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import axios from 'axios';
 import SubmitAnswer from './SubmitAnswer';
-import auth0Client from '../Auth';
+//import auth0Client from '../Auth';
 import { Animated } from "react-animated-css";
 
 import "./q.css"
@@ -31,9 +31,11 @@ class Question extends Component {
   async submitAnswer(answer) {
     await axios.post(`http://localhost:5000/api/questions/answer/${this.state.question.id}`, {
       answer,
-    }, {
-      headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
-    });
+    }
+    //   , {
+    //   headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
+    // 
+    );
     await this.refreshQuestion();
   }
 

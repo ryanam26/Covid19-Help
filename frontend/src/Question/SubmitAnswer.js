@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
-import {withRouter} from 'react-router-dom';
-import auth0Client from '../Auth';
+//import {withRouter} from 'react-router-dom';
+//import auth0Client from '../Auth';
 import "./q.css"
 
 class SubmitAnswer extends Component {
@@ -28,7 +28,7 @@ class SubmitAnswer extends Component {
 
   render() {
     
-    if (!auth0Client.isAuthenticated()) return null;
+   // if (!auth0Client.isAuthenticated()) return null;
     return (
       <Fragment>
         <div className="form-group text-center">
@@ -57,4 +57,4 @@ class SubmitAnswer extends Component {
   }
 }
 
-export default withRouter(SubmitAnswer);
+export default SubmitAnswer;

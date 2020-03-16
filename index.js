@@ -5,8 +5,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const helmet = require('helmet');
 const morgan = require('morgan');
-const jwt = require('express-jwt');
-const jwksRsa = require('jwks-rsa');
+
 const mongoose = require('mongoose')
 // define the Express app
 const app = express();
@@ -44,7 +43,7 @@ app.use('/api/questions', questions);
 
 
   // set static folder
-if (process.env.NODE_ENV === 'production') {
+/* if (process.env.NODE_ENV === 'production') {
 
   app.use(express.static('frontend/build'));
 
@@ -53,7 +52,7 @@ if (process.env.NODE_ENV === 'production') {
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
 
   })
-}
+} */
 
 
 
