@@ -50,7 +50,7 @@ app.use(morgan('combined'));
 // retrieve all questions
 app.get('/', (req, res) => {
   questionsModel.find()
-    .then(q => res.json(q.reverse().map(q => ({
+    .then(q => res.send(q.reverse().map(q => ({
       id: q.id,
       title: q.title,
       description: q.description,
@@ -64,7 +64,7 @@ app.get('/', (req, res) => {
 // get a specific question
 app.get('/:id', (req, res) => {
   questionsModel.findOne({ id: req.params.id })
-    .then(qu => res.json(qu))
+    .then(qu => res.send(qu))
 })
 
 const checkJwt = jwt({
@@ -91,7 +91,7 @@ app.post('/', checkJwt, (req, res) => {
     answers: [],
     author: req.user.name,
   });
-  newQuestion.save().then(res.json());
+  newQuestion.save().then(res.send());
 
 });
 
@@ -103,7 +103,7 @@ app.post('/answer/:id', checkJwt, (req, res) => {
   questionsModel.findOne({ id: req.params.id })
     .then((record) => {
       record.answers.push(answer);
-      record.save().then(res.json())
+      record.save().then(res.send())
   })
   
 });
