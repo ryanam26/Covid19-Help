@@ -26,6 +26,7 @@ mongoose
 
 
 // enhance your app security with helmet
+app.use(helmet());
 
 // user BodyParser to parse application.json content-type
 app.use(bodyParser.json());
