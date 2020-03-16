@@ -22,7 +22,7 @@ class Question extends Component {
 
   async refreshQuestion() {
     const { match: { params } } = this.props;
-    const question = (await axios.get(`http://localhost:5000/api/questions/${params.questionId}`)).data;
+    const question = (await axios.get(`/api/questions/${params.questionId}`)).data;
     this.setState({
       question,
     });
