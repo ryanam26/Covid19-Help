@@ -31,7 +31,7 @@ class NewQuestion extends Component {
       disabled: true,
     });
 
-    await axios.post('http://localhost:5000', {
+    await axios.post('http://localhost:5000/api/questions', {
       title: this.state.title,
       description: this.state.description,
     }, {

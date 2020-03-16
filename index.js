@@ -11,6 +11,8 @@ const mongoose = require('mongoose')
 // define the Express app
 const app = express();
 
+const questions = require('./routes/api/questions.js')
+
 
 // the database
 
@@ -22,17 +24,6 @@ mongoose
   .catch(err => console.log(err))
 
 
-const QSchema = mongoose.Schema({
-
-  id: Number,
-  title: String,
-  description: String,
-  answers: [String],
-  author: String
-
-})
-
-const questionsModel = mongoose.model("questions", QSchema)
 
 // enhance your app security with helmet
 app.use(helmet());
@@ -46,72 +37,9 @@ app.use(cors());
 // log HTTP requests
 app.use(morgan('combined'));
 
+//use routes
 
-
-
-
-
-
-// retrieve all questions
-app.get('/', (req, res) => {
-  questionsModel.find()
-    .then(q => res.send(q.reverse().map(q => ({
-      id: q.id,
-      title: q.title,
-      description: q.description,
-      answers: q.answers.length
-
-    }))))
-
-})
-
-
-// get a specific question
-app.get('/:id', (req, res) => {
-  questionsModel.findOne({ id: req.params.id })
-    .then(qu => res.send(qu))
-})
-
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://dev-8phuysyw.auth0.com/.well-known/jwks.json`
-  }),
-
-  // Validate the audience and the issuer.
-  audience: 'VaTIJDgVoTChhck5JhspfFo8FoUv3LLT',
-  issuer: `https://dev-8phuysyw.auth0.com/`,
-  algorithms: ['RS256']
-});
-
-// insert a new question
-app.post('/', checkJwt, (req, res) => {
-  const { title, description } = req.body;
-  const newQuestion = new questionsModel({
-    id: Math.random(),
-    title,
-    description,
-    answers: [],
-    author: req.user.name,
-  });
-  newQuestion.save().then(res.send());
-
-});
-
-// insert a new answer to a question
-app.post('/answer/:id', checkJwt, (req, res) => {
-  const { answer } = req.body;
-
-
-  questionsModel.findOne({ id: req.params.id })
-    .then((record) => {
-      record.answers.push(answer);
-      record.save().then(res.send())
-  })
-  
-});
+app.use('/api/questions', questions);
 
 
 if (process.env.NODE_ENV === 'production') {
@@ -121,7 +49,7 @@ if (process.env.NODE_ENV === 'production') {
 
     app.use(express.static('frontend/build'));
 
-    res.sendFile(path.resolve(__dirname, "frontend", 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
 
   })
 }
