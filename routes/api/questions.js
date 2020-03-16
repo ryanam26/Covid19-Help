@@ -23,7 +23,7 @@ const questionsModel = mongoose.model("questions", QSchema)
 // retrieve all questions
 router.get('/', (req, res) => {
     questionsModel.find()
-        .then(q => res.send(q.reverse().map(q => ({
+        .then(q => res.json(q.reverse().map(q => ({
             id: q.id,
             title: q.title,
             description: q.description,
@@ -37,7 +37,7 @@ router.get('/', (req, res) => {
 // get a specific question
 router.get('/:id', (req, res) => {
     questionsModel.findOne({ id: req.params.id })
-        .then(qu => res.send(qu))
+        .then(q => res.json(q))
 })
 
 const checkJwt = jwt({
@@ -64,7 +64,7 @@ router.post('/', checkJwt, (req, res) => {
         answers: [],
         author: req.user.name,
     });
-    newQuestion.save().then(q=>res.send(q));
+    newQuestion.save().then(q=>res.json(q));
 
 });
 
@@ -76,7 +76,7 @@ router.post('/answer/:id', checkJwt, (req, res) => {
     questionsModel.findOne({ id: req.params.id })
         .then((record) => {
             record.answers.push(answer);
-            record.save().then(res.send())
+            record.save().then( q => res.json(q))
         })
 
 });
