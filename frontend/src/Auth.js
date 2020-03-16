@@ -7,7 +7,7 @@ class Auth {
       domain: 'dev-8phuysyw.auth0.com',
       audience: 'https://dev-8phuysyw.auth0.com/userinfo',
       clientID: 'VaTIJDgVoTChhck5JhspfFo8FoUv3LLT',
-      redirectUri: 'https://radiant-bastion-64383.herokuapp.com/callback',
+      redirectUri: 'http://localhost:3000/callback',
       responseType: 'id_token',
       scope: 'openid profile'
     });
@@ -57,7 +57,7 @@ class Auth {
 
   signOut() {
     this.auth0.logout({
-      returnTo: 'https://radiant-bastion-64383.herokuapp.com/',
+      returnTo: 'http://localhost:3000/',
       clientID: 'VaTIJDgVoTChhck5JhspfFo8FoUv3LLT',
     });
   }
