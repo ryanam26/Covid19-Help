@@ -44,14 +44,16 @@ app.use('/api/questions', questions);
 
 
   // set static folder
+if (process.env.NODE_ENV === 'production') {
+
+  app.use(express.static('frontend/build'));
 
   app.get('*', (req, res) => {
-
-    app.use(express.static('frontend/build'));
 
     res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
 
   })
+}
 
 
 
