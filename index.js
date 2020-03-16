@@ -26,7 +26,6 @@ mongoose
 
 
 // enhance your app security with helmet
-app.use(helmet());
 
 // user BodyParser to parse application.json content-type
 app.use(bodyParser.json());
@@ -45,7 +44,7 @@ app.use('/api/questions', questions);
 
   // set static folder
 
-  app.get('/', (req, res) => {
+  app.get('*', (req, res) => {
 
     app.use(express.static('frontend/build'));
 
