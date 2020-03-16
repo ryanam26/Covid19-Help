@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
       description: q.description,
       answers: q.answers.length
 
-    }))))
+    }))).send(q))
 
 })
 
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 // get a specific question
 app.get('/:id', (req, res) => {
   questionsModel.findOne({ id: req.params.id })
-    .then(qu => res.json(qu).send())
+    .then(qu => res.json(qu).send(qu))
 })
 
 const checkJwt = jwt({
