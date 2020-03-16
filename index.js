@@ -54,7 +54,7 @@ app.get('/', (req, res) => {
       description: q.description,
       answers: q.answers.length
 
-    }))).send(q))
+    }))))
 
 })
 
@@ -62,7 +62,7 @@ app.get('/', (req, res) => {
 // get a specific question
 app.get('/:id', (req, res) => {
   questionsModel.findOne({ id: req.params.id })
-    .then(qu => res.json(qu).send(qu))
+    .then(qu => res.json(qu))
 })
 
 const checkJwt = jwt({
@@ -89,7 +89,7 @@ app.post('/', checkJwt, (req, res) => {
     answers: [],
     author: req.user.name,
   });
-  newQuestion.save().then(res.send());
+  newQuestion.save().then(res.json());
 
 });
 
@@ -101,7 +101,7 @@ app.post('/answer/:id', checkJwt, (req, res) => {
   questionsModel.findOne({ id: req.params.id })
     .then((record) => {
       record.answers.push(answer);
-      record.save().then(res.send())
+      record.save().then(res.json())
   })
   
 });
@@ -113,7 +113,7 @@ if (process.env.NODE_ENV === 'production') {
 
   app.get('*', (req, res) => {
 
-    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'))
+    res.sendFile(path.resolve(__dirname, "frontend", 'build', 'index.html'))
 
   })
 }
