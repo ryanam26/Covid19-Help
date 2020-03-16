@@ -49,7 +49,7 @@ app.use(morgan('combined'));
 app.use(express.static('fontend/build'));
 
 // retrieve all questions
-app.get('/', (req, res) => {
+/* app.get('/', (req, res) => {
   questionsModel.find()
     .then(q => res.json(q.reverse().map(q => ({
       id: q.id,
@@ -59,7 +59,7 @@ app.get('/', (req, res) => {
 
     }))))
 
-})
+}) */
 
 
 // get a specific question
