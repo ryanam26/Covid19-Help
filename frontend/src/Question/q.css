@@ -1,0 +1,37 @@
+
+.q-p{
+    background-color: white;
+    border-radius: 0.25rem;
+    padding: 5px;
+    
+}
+.enable {
+    pointer-events: auto;
+     opacity: 1;
+     transition: all .5s;
+
+}
+.disable {
+     pointer-events: none;
+     opacity: .5;
+     transition: all .5s;
+
+
+}
+.submit-container {
+    display: flex;
+    flex-direction: row;
+}
+.hide {
+    opacity: 0;
+    transition: all .5s;
+    padding: 7px;
+
+}
+.show {
+    opacity: 1;    
+    transition: all .5s;
+    padding: 7px;
+
+
+}
