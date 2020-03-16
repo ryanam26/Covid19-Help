@@ -11,6 +11,7 @@ const mongoose = require('mongoose')
 // define the Express app
 const app = express();
 
+
 // the database
 
 const db = require('./config/keys').mongoURI;
@@ -44,6 +45,8 @@ app.use(cors());
 
 // log HTTP requests
 app.use(morgan('combined'));
+
+app.use(express.static('fontend/build'));
 
 // retrieve all questions
 app.get('/', (req, res) => {
@@ -109,7 +112,7 @@ app.post('/answer/:id', checkJwt, (req, res) => {
 
 if (process.env.NODE_ENV === 'production') {
   // set static folder
-  app.use(express.static('fontend/build'));
+  //app.use(express.static('fontend/build'));
 
   app.get('*', (req, res) => {
 
