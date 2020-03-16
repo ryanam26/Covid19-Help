@@ -33,7 +33,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <p class="text-center">This is a test</p>
+        <p className="text-center">HERE, WE ARE FAMILY <span role="img" aria-label="emoji-thumbs-up" >❤️</span> </p>
         <NavBar/>
         <Route exact path='/' component={Questions}/>
         <Route exact path='/question/:questionId' component={Question}/>

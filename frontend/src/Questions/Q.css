@@ -1,0 +1,29 @@
+.custome-card {
+    height: 188px;
+}
+.hover-card:hover {
+        text-decoration: none;
+
+
+}
+
+.hover-card .custome-card {
+    box-shadow: 0px .5px 5px #00000000;
+    transition: all .5s;
+}
+.hover-card:hover .custome-card {
+    box-shadow: 0px .5px 5px #000000;
+    transition: all .5s;
+
+}
+.hover-card p {
+    height: 73px;
+    overflow: hidden;
+}
+.fath {
+    margin-right: 15px;
+
+}
+.chil {
+    padding-left: 0;
+}
