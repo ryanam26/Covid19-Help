@@ -11,7 +11,7 @@ const mongoose = require('mongoose')
 // define the Express app
 const app = express();
 
-const questions = require('./routes/api/questions.js')
+const questions = require('./routes/api/questions')
 
 
 // the database
