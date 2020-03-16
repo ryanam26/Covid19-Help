@@ -112,7 +112,7 @@ app.post('/answer/:id', checkJwt, (req, res) => {
 if (process.env.NODE_ENV === 'production') {
   // set static folder
 
-  app.get('*', (req, res) => {
+  app.get('/', (req, res) => {
 
     app.use(express.static('fontend/build'));
 
