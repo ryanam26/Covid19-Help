@@ -11,7 +11,7 @@ function NavBar(props) {
   return (
     <nav className="navbar navbar-dark bg-primary fixed-top">
       <Link className="navbar-brand" to="/">
-        Covid19 - Help
+        Covid19 - Help App
       </Link>
     </nav>
   );
