@@ -24,7 +24,7 @@ class Questions extends Component {
       <div className="container">
         <div className="row">
           <Link className="hover-card" to="/new-question">
-            <div className="card custome-card fath text-white bg-secondary mb-3">
+            <div style={{ marginRight: "15px", paddingRight: "10px" }} className="card custome-card fath text-white bg-secondary mb-3">
               <div className="card-header">Need help? Ask here!</div>
               <div className="card-body">
                 <h4 className="card-title">+ New Question</h4>
