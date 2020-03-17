@@ -45,7 +45,7 @@ class Question extends Component {
     
     return (
       <Animated animationIn="fadeIn" animationOut="zoomOutDown" animationInDuration={800} animationOutDuration={1000} isVisible={true}>
-
+        {/* <p>Hi there this is a test</p> */}
       <div className="container">
         <div className="row">
           <div className="jumbotron col-12">
