@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+{/* <h1>Hello world</h1> */}
 ReactDOM.render(
   <BrowserRouter>
     <App />

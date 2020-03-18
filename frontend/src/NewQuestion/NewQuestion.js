@@ -48,7 +48,7 @@ class NewQuestion extends Component {
       <div className="container">
         <div className="row">
           <div className="col-12">
-            <p className="text-center">This is a test</p>
+            <h4 className="text-center">Please enter your city and describe your problem.</h4>
             <div className="card border-primary">
               <div className="card-header">What do you need help with?</div>
               <div className="card-body text-left">

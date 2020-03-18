@@ -10,7 +10,7 @@ function NavBar(props) {
 
   return (
     <nav className="navbar navbar-dark bg-primary fixed-top">
-      <Link className="navbar-brand" to="/">
+      <Link className="navbar-brand" style={{ backgroundColor: '#18BC9C', borderRadius: '0.25rem'}} to="/">
         Covid19 - Help App
       </Link>
     </nav>
