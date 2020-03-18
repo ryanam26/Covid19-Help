@@ -32,7 +32,7 @@ class Questions extends Component {
         <p className='text-center'>3. Helpers, click on the cards that you are interested in helping and submit an answer as to how you can help.</p>
         <div className="row">
           <Link className="hover-card" to="/new-question">
-            <div style={{ marginRight: "15px", paddingRight: "10px" }} className="card custome-card fath text-white bg-secondary mb-3">
+            <div style={{ paddingRight: "10px" }} className="card custome-card fath text-white bg-secondary mb-3">
               <div className="card-header">Need help? Ask here!</div>
               <div className="card-body">
                 <h4 className="card-title">+ Click Here</h4>
