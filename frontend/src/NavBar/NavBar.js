@@ -13,7 +13,7 @@ function NavBar(props) {
       <Link className="navbar-brand" style={{ backgroundColor: '#18BC9C', borderRadius: '0.25rem'}} to="/">
         Covid19 - Helpers App
       </Link>
-      <Link target="_blank" to={"//www.twitter.com/covid19helpers"} className="navbar-right" style={{ backgroundColor: '#18BC9C', color: '#FFFFFF'}} >Twitter</Link>
+      <Link target="_blank" to={"//www.twitter.com/covid19helpers"} className="navbar-right" style={{ backgroundColor: '#18BC9C', color: '#FFFFFF', borderRadius: '0.25rem'}} >Twitter</Link>
     </nav>
   );
 }
