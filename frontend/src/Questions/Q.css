@@ -27,3 +27,9 @@
 .chil {
     padding-left: 0;
 }
+
+@media (max-width: 740px) {
+    .hover-card {
+        margin: 0 auto;
+    }
+}
