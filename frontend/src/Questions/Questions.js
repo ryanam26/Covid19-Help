@@ -30,7 +30,8 @@ class Questions extends Component {
         <p className='text-center'>1. Click the grey box below and ask for help, enter the city you are located in and a simple request, e.g. I need a job, I need to pick up my elderly parents medication but I am stuck or where can I find sanitizer etc...<br></br></p>
         <p className='text-center'>2. Add a link to your bio, email or anything the helper can use to help you.  <b>Please do not expose any sensitive information.</b></p>
         <p className='text-center'>3. Helpers, click on the cards that you are interested in helping and submit an answer as to how you can help. <b>NO BAD ACTORS ALLOWED!</b></p>
-        <p className='text-center'>4. Please reach out with feature suggestions at the email above. <b>Good luck, be safe, and kind to one another!</b></p>
+        <p className='text-center'>4. Please reach out with feature suggestions at the email above. <b>Good luck, be safe, and kind to one another! </b></p>
+        <p className="text-center">HERE, WE ARE FAMILY <span role="img" aria-label="emoji-thumbs-up" >❤️</span> </p>
         <div className="row">
           <Link className="hover-card" to="/new-question">
             <div style={{ paddingRight: "10px" }} className="card custome-card fath text-white bg-secondary mb-3">
